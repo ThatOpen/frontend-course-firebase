@@ -1,8 +1,11 @@
 import React from "react";
-import { HelloRef } from "./components/hello-ref";
-import { HelloMemo } from "./components/memo/hello-memo";
 import "./global.css";
+import { HelloPortal } from "./components/hello-portal";
 
 export function App() {
-  return <HelloMemo />;
+  return (
+    <div>
+      <HelloPortal />
+    </div>
+  );
 }
