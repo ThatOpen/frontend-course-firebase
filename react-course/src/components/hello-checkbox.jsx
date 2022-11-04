@@ -1,13 +1,15 @@
+import { useState } from "react";
+
 export const HelloCheckbox = () => {
+  const [isChecked, setIsChecked] = useState(false);
   const changeHandler = (event) => {
-    alert(`The value of the checkbox is ${event.target.checked}`);
+    setIsChecked(event.target.checked);
   };
 
-  const styles = {
-    accentColor: "red",
-    height: 50,
-    width: 50,
-  };
-
-  return <input type="checkbox" style={styles} onChange={changeHandler} />;
+  return (
+    <>
+      <input type="checkbox" onChange={changeHandler} />
+      {isChecked ? <div>The checkbox is checked!</div> : null}
+    </>
+  );
 };
