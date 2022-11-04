@@ -1,7 +1,7 @@
 import React from "react";
-import { HelloCounter } from "./components/hello-counter";
+import { HelloList } from "./components/hello-list";
 import "./global.css";
 
 export function App() {
-  return <HelloCounter />;
+  return <HelloList />;
 }
