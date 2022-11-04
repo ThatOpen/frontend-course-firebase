@@ -1,7 +1,7 @@
 import React from "react";
-import { HelloList } from "./components/hello-list";
+import { HelloContext } from "./components/hello-context";
 import "./global.css";
 
 export function App() {
-  return <HelloList />;
+  return <HelloContext />;
 }
