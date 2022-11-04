@@ -1,4 +1,9 @@
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { HelloWorld } from "./components/hello-world";
+import { App } from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HelloWorld />);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
