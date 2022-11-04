@@ -1,8 +1,13 @@
-export function HelloWorld({ person }) {
-  const { name, surname } = person;
-  return (
-    <h1>
-      Hello {name} {surname}!
-    </h1>
-  );
+import { Component } from "react";
+
+export class HelloWorld extends Component {
+  constructor(props) {
+    super(props);
+    console.log("This is new!");
+  }
+
+  render() {
+    const { name } = this.props;
+    return <h1>Hello {name}!</h1>;
+  }
 }
