@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 
 export const useRandomUsers = (numberOfUsers = 1) => {
   const [users, setUsers] = useState([]);
+
+  useDebugValue(numberOfUsers);
 
   useEffect(() => {
     if (numberOfUsers <= 0) {
