@@ -3,5 +3,11 @@ export const HelloCheckbox = () => {
     alert(`The value of the checkbox is ${event.target.checked}`);
   };
 
-  return <input type="checkbox" onChange={changeHandler} />;
+  const styles = {
+    accentColor: "red",
+    height: 50,
+    width: 50,
+  };
+
+  return <input type="checkbox" style={styles} onChange={changeHandler} />;
 };

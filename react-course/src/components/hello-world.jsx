@@ -1,3 +1,5 @@
-export function HelloWorld({ name }) {
-  return <h1>Hello {name}!</h1>;
-}
+import "./styles.css";
+
+export const HelloWorld = ({ name }) => {
+  return <h1 className="helloWorld">Hello {name}!</h1>;
+};
