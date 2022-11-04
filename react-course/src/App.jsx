@@ -1,11 +1,11 @@
 import React from "react";
 import "./global.css";
-import { HelloPortal } from "./components/hello-portal";
+import { HelloChildren } from "./components/hello-children";
 
 export function App() {
   return (
-    <div>
-      <HelloPortal />
-    </div>
+    <HelloChildren>
+      <span>I am a child!</span>
+    </HelloChildren>
   );
 }
