@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MyContext } from "./hello-context";
 
 export const HelloForm = () => {
   const [nameValue, setNameValue] = useState("");
   const [surnameValue, setSurnameValue] = useState("");
+  const [isChecked] = useContext(MyContext);
 
   const clickHandler = () => {
     alert(`Hello ${nameValue} ${surnameValue}`);
@@ -30,7 +32,9 @@ export const HelloForm = () => {
           }}
         />
       </label>
-      <button onClick={clickHandler}>Submit!</button>
+      <button disabled={isChecked} onClick={clickHandler}>
+        Submit!
+      </button>
     </form>
   );
 };

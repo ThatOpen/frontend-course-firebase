@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { MyContext } from "./hello-context";
 
 export const HelloCheckbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useContext(MyContext);
   const changeHandler = (event) => {
     setIsChecked(event.target.checked);
   };
