@@ -1,16 +1,20 @@
 import { useContext } from "react";
-import { MyContext } from "./hello-context";
+import { ApplicationContext } from "../App-context";
 
 export const HelloCheckbox = () => {
-  const [isChecked, setIsChecked] = useContext(MyContext);
+  const [state, dispatch] = useContext(ApplicationContext);
   const changeHandler = (event) => {
-    setIsChecked(event.target.checked);
+    if (event.target.checked) {
+      dispatch({ type: "CHECK" });
+    } else {
+      dispatch({ type: "UNCHECK" });
+    }
   };
 
   return (
     <>
       <input type="checkbox" onChange={changeHandler} />
-      {isChecked ? <div>The checkbox is checked!</div> : null}
+      {state.isChecked ? <div>The checkbox is checked!</div> : null}
     </>
   );
 };

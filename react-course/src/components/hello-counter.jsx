@@ -1,30 +1,17 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useContext } from "react";
+import { ApplicationContext } from "../App-context";
 
 export const HelloCounter = () => {
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    const clickListener = () => {
-      alert("This is not the button!");
-    };
-    document.body.addEventListener("click", clickListener);
-    return () => {
-      document.body.removeEventListener("click", clickListener);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.title = `You clicked ${counter} times`;
-  }, [counter]);
+  const [state, dispatch] = useContext(ApplicationContext);
+  const { count } = state;
 
   const handleClick = () => {
-    setCounter(counter + 1);
+    dispatch({ type: "INCREMENT" });
   };
 
   return (
     <>
-      <div>Counter: {counter}</div>
+      <div>Counter: {count}</div>
       <button onClick={handleClick}>count</button>
     </>
   );

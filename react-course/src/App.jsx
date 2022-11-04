@@ -1,6 +1,15 @@
 import React from "react";
 import "./global.css";
-import { HelloReducer } from "./components/hello-reducer";
+import { AppContext } from "./App-context";
+import { HelloCheckbox } from "./components/hello-checkbox";
+import { HelloForm } from "./components/hello-form";
+import { HelloCounter } from "./components/hello-counter";
 export function App() {
-  return <HelloReducer />;
+  return (
+    <AppContext>
+      <HelloCheckbox />
+      <HelloForm />
+      <HelloCounter />
+    </AppContext>
+  );
 }
