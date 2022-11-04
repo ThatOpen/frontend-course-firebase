@@ -1,7 +1,7 @@
 import React from "react";
-import { HelloCheckbox } from "./components/hello-checkbox";
+import { HelloCounter } from "./components/hello-counter";
 import "./global.css";
 
 export function App() {
-  return <HelloCheckbox />;
+  return <HelloCounter />;
 }
