@@ -1,5 +1,6 @@
 import { HelloWorld } from "./components/hello-world";
 
 export function App() {
-  return <HelloWorld />;
+  const person = { name: "Jhon", surname: "Doe" };
+  return <HelloWorld person={person} />;
 }

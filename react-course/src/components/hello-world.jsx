@@ -1,3 +1,8 @@
-export function HelloWorld() {
-  return <h1>Hello World!</h1>;
+export function HelloWorld({ person }) {
+  const { name, surname } = person;
+  return (
+    <h1>
+      Hello {name} {surname}!
+    </h1>
+  );
 }
