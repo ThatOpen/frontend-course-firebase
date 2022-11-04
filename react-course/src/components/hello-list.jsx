@@ -1,29 +1,17 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useRandomUsers } from "../utils/hello-hook";
 
 export const HelloList = () => {
-  const [names, setNames] = useState([]);
-
-  useEffect(() => {
-    fetch("https://randomuser.me/api/?results=3").then((response) => {
-      if (response) {
-        response.json().then((data) => {
-          const newNames = [];
-          data.results.forEach((result) => {
-            newNames.push(result.name.first);
-          });
-          setNames(newNames);
-        });
-      }
-    });
-  }, []);
-
+  const users = useRandomUsers(3);
   return (
     <ul>
-      {Boolean(names.length) &&
-        names.map((name, index) => {
-          const uniqueKey = `${name}${index}`;
-          return <li key={uniqueKey}>{name}</li>;
+      {Boolean(users.length) &&
+        users.map((user, index) => {
+          const uniqueKey = `${user.name.first}${user.name.last}${index}`;
+          return (
+            <li key={uniqueKey}>
+              {user.name.first} {user.name.last}
+            </li>
+          );
         })}
     </ul>
   );
