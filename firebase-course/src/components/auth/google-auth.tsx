@@ -8,7 +8,7 @@ export const GoogleAuth: FC = () => {
     signInWithPopup(auth, provider);
   };
   return (
-    <button className="coolButton" onClick={onLoginClick}>
+    <button className="coolButton orangeButton" onClick={onLoginClick}>
       Google Login
     </button>
   );
