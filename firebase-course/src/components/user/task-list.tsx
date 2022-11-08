@@ -1,6 +1,8 @@
 import { getApp } from "firebase/app";
 import {
   collection,
+  deleteDoc,
+  doc,
   getFirestore,
   onSnapshot,
   query,
@@ -31,14 +33,23 @@ export const TaskList: FC = () => {
     return () => {
       unsubscribe();
     };
-  }, [q]);
+  }, []);
+
+  const onDeleteTask = async (taskId: string) => {
+    await deleteDoc(doc(dbInstance, "tasks", taskId));
+  };
 
   return (
     <div>
       {Boolean(tasks.length) ? (
         <ul>
           {tasks.map((task) => {
-            return <li key={task.uid}>{task.title}</li>;
+            return (
+              <li key={task.uid}>
+                {task.title}
+                <button onClick={() => onDeleteTask(task.uid)}>Delete</button>
+              </li>
+            );
           })}
         </ul>
       ) : (
