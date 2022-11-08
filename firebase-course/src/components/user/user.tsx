@@ -5,7 +5,7 @@ import { Logout } from "./logout";
 export const User: FC = () => {
   const [user] = useUserContext();
   return (
-    <div className="userContent">
+    <div className="contentFlexVertical">
       <span>{user?.displayName}</span>
       <Logout />
     </div>
