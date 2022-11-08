@@ -1,0 +1,21 @@
+.centerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.coolButton {
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  background-color: #ffcc32;
+  cursor: pointer;
+}
