@@ -1,8 +1,6 @@
 import { getApp } from "firebase/app";
 import {
   collection,
-  deleteDoc,
-  doc,
   getFirestore,
   onSnapshot,
   query,
@@ -11,6 +9,7 @@ import {
 import { FC, useEffect, useState } from "react";
 import { TaskEntity } from "../../types/firestore-types";
 import { useUserContext } from "../../user-provider";
+import { TaskDisplay } from "./task-display";
 
 export const TaskList: FC = () => {
   const [tasks, setTasks] = useState<TaskEntity[]>([]);
@@ -35,21 +34,12 @@ export const TaskList: FC = () => {
     };
   }, []);
 
-  const onDeleteTask = async (taskId: string) => {
-    await deleteDoc(doc(dbInstance, "tasks", taskId));
-  };
-
   return (
     <div>
       {Boolean(tasks.length) ? (
         <ul>
           {tasks.map((task) => {
-            return (
-              <li key={task.uid}>
-                {task.title}
-                <button onClick={() => onDeleteTask(task.uid)}>Delete</button>
-              </li>
-            );
+            return <TaskDisplay key={task.uid} task={task} />;
           })}
         </ul>
       ) : (
